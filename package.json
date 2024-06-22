@@ -1,17 +1,32 @@
 {
   "name": "adopt-pet-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple pet adoption site built with Express.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ruthgeorgiev/adopt-pet-app.git"
+  },
+  "keywords": [
+    "express",
+    "pet-adoption",
+    "nodejs"
+  ],
+  "author": "Ruth Georgiev",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruthgeorgiev/adopt-pet-app/issues"
+  },
+  "homepage": "https://github.com/ruthgeorgiev/adopt-pet-app#readme",
   "dependencies": {
-    "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
