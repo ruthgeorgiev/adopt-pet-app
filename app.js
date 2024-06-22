@@ -3,15 +3,15 @@ const app = express();
 const port = 8000;
 const pets = require('./petList');
 
-// Middleware to parse JSON bodies
+
 app.use(express.json());
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-// Root route
+
 app.get('/', (req, res) => {
   res.send(`
     <h1>Adopt a Pet!</h1>
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   `);
 });
 
-// JSON route for all animal types
+
 app.get('/animals', (req, res) => {
   const animalTypes = Object.keys(pets).map(type => ({
     type: type,
@@ -33,7 +33,7 @@ app.get('/animals', (req, res) => {
   res.json({ animalTypes });
 });
 
-// Route for list of pets by type
+
 app.get('/animals/:pet_type', (req, res) => {
   const petType = req.params.pet_type;
   const petList = pets[petType];
@@ -52,7 +52,7 @@ app.get('/animals/:pet_type', (req, res) => {
   `);
 });
 
-// Route for individual pet profile
+
 app.get('/animals/:pet_type/:pet_id', (req, res) => {
   const petType = req.params.pet_type;
   const petId = parseInt(req.params.pet_id);
@@ -76,7 +76,7 @@ app.get('/animals/:pet_type/:pet_id', (req, res) => {
   `);
 });
 
-// Add a new pet
+
 app.post('/animals/:pet_type', (req, res) => {
   const petType = req.params.pet_type;
   const newPet = req.body;
@@ -89,7 +89,7 @@ app.post('/animals/:pet_type', (req, res) => {
   res.status(201).send('New pet added');
 });
 
-// Update an existing pet
+
 app.put('/animals/:pet_type/:pet_id', (req, res) => {
   const petType = req.params.pet_type;
   const petId = parseInt(req.params.pet_id);
@@ -103,7 +103,7 @@ app.put('/animals/:pet_type/:pet_id', (req, res) => {
   res.send('Pet updated');
 });
 
-// Delete a pet
+
 app.delete('/animals/:pet_type/:pet_id', (req, res) => {
   const petType = req.params.pet_type;
   const petId = parseInt(req.params.pet_id);
